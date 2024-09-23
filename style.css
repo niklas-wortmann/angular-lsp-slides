@@ -1,0 +1,16 @@
+li {
+    color: white;
+    border-radius: 12px;
+    padding: 1.5em 0;
+    text-align: center;
+    list-style: none;
+    margin-bottom: 1em;
+    background: var(--onu-colors-background-light);
+    border: 1px solid var(--onu-colors-border-light);
+    color: white;
+    font-size: 1.3em;
+}
+
+:root {
+    --slidev-code-font-size: 1rem
+}
