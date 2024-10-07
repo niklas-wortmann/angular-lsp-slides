@@ -1,5 +1,5 @@
 {
-  "name": "pragmatic typings",
+  "name": "angular-lsp-talk",
   "type": "module",
   "private": true,
   "scripts": {
@@ -10,8 +10,9 @@
   "dependencies": {
     "@slidev/cli": "0.48.3",
     "@slidev/theme-default": "latest",
-    "vue": "^3.4.21",
+    "prettier-plugin-slidev": "1.0.5",
     "slidev-theme-wordman": "latest",
-    "prettier-plugin-slidev": "1.0.5"
+    "vue": "^3.4.21",
+    "onu-ui": "1.0.14-beta.2"
   }
 }
