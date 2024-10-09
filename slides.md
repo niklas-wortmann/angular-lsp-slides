@@ -25,6 +25,20 @@ favicon: ./favicon.png
 ---
 ---
 
+# What is an Language Server
+
+<div class="w-full h-90 flex items-center justify-center">
+```mermaid {scale: 2}
+graph LR
+    A[LSP] <-- stdio --> B[IDE]
+    linkStyle default background-color:#121,color:white
+```
+</div>
+
+
+---
+---
+
 # Angular Language Server - Architecture
 
 <div class="flex items-center justify-center w-full h-90">
@@ -45,19 +59,6 @@ layout: center
 
 # Language Server !== Language Service
 
----
----
-
-
-# What is an Language Server
-
-<div class="w-full h-90 flex items-center justify-center">
-```mermaid {scale: 2}
-graph LR
-    A[LSP] <-- stdio --> B[IDE]
-    linkStyle default background-color:#121,color:white
-```
-</div>
 
 ---
 ---
@@ -139,25 +140,61 @@ export class Session {
     }
 }
 ```
+
+---
+layout: image
+image: /syntax-highlting.png
+backgroundSize: contain
+---
+
+
+---
+layout: cover
+transition: view-transition
+---
+
+<h1 style="view-transition-name: headline; color: transparent; background: url('/angular-gradient.jpg'); background-size: cover; background-position: center; background-clip: text; clip-path: inset(0%);">
+    The Angular Language Server
+</h1>
+<h2>Inside Out</h2> 
+
+---
+layout: cover
+transition: view-transition
+---
+
+<h1 style="view-transition-name: headline; color: transparent; background: url('/angular-gradient.jpg'); background-size: cover; background-position: center; background-clip: text; clip-path: inset(0%);">
+    The Angular Language Service
+</h1>
+<h2>Inside Out</h2> 
+
+
+---
+layout: introduction
+---
+
+---
+---
+
+# Angular Language Server - Architecture
+
+<div class="flex items-center justify-center w-full h-90">
+```mermaid{scale:1.3}
+graph LR
+A[Client] --> B
+subgraph B [Angular Language Server]
+    direction TB
+    C[Language Server]-->D[TypeScript Host]
+end
+B --> E[@angular/language-service]
+```
+</div>
+
 ---
 layout: image
 image: /language-service-npm.png
 ---
 
-
-
----
-layout: center
-preload: false
----
-
-<h2> The Angular Language <span v-mark="{at: 1, color: 'red', type: 'crossed-off'}">Server</span>
-    <div class="inline-block" v-click="2" v-motion :initial="{ x: -1050 }" :enter="{ x: 10 }">Service</div> </h2>
-<h3>Inside Out</h3> 
-
----
-layout: introduction
----
 
 ---
 ---
@@ -210,7 +247,31 @@ end
 </div>
 
 ---
+layout: cover
+transition: view-transition
+---
 
+<h1 style="view-transition-name:headline-1"> T </h1><h1 style="view-transition-name:headline-2"> C </h1><h1 style="view-transition-name:headline-3"> B </h1>
+
+<style>
+h1 {
+display: contents;
+}
+</style>
+
+---
+layout: cover
+transition: view-transition
+---
+
+<h1 style="view-transition-name:headline-1"> Type </h1><h1 style="view-transition-name:headline-2"> Check </h1><h1 style="view-transition-name:headline-3"> Block </h1>
+
+<style>
+h1 {
+display: contents;
+}
+</style>
+---
 
 ```mermaid
 graph TB
@@ -384,6 +445,21 @@ function _tcb1(this: SomeComponent) {
 
 
 ---
+---
+
+```ts
+  require(initialPath: string, moduleName: string): ts.server.RequireResult {
+    if (moduleName !== '@angular/language-service') {
+        return {
+            module: undefined,
+            error: new Error(`Angular server will not load plugin '${moduleName}'.`),
+        };
+    }
+    ...
+}
+```
+
+---
 layout: center
 ---
 
@@ -396,16 +472,25 @@ layout: cover
 # But why is WebStorm not using the Angular Language Service?!
 
 ---
+layout: image
+image: /vite-conf-talk.png
+---
+
+---
 layout: center
 ---
 
 <div class="flex items-center justify-center w-full h-90">
 ```mermaid{scale:1.3}
-graph LR
-A[Angular Component] --> B[TypeScript AST]
-A --> C[TCB]
-C --> D[Volar]
-D --> B
+graph TB
+A[Angular Component] --> B[TypeScript Part]
+B --> G[TypeScript LSP]
+G --> A
+A --> H[HTML Part]
+H --> C[TCB Engine]
+C --> D[Virtual TS File]
+D --> E[Angular Volar LSP]
+E --> A
 ```
 </div>
 
