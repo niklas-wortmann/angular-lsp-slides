@@ -35,6 +35,11 @@ graph LR
 ```
 </div>
 
+---
+layout: center
+---
+
+<img src="/mismatch-gif.gif">
 
 ---
 ---
@@ -410,9 +415,9 @@ layout: two-cols
 export class SomeComponent {
   public variable = 1;
 
-someFn(num: number) {
-console.log('Hello NG DE');
-}
+  someFn(num: number) {
+    console.log('Hello NG DE');
+  }
 }
 ```
 ````
@@ -460,10 +465,18 @@ function _tcb1(this: SomeComponent) {
 ```
 
 ---
-layout: center
+layout: cover
+transition: view-transitions
 ---
 
-# Angular Language Server does not support Plugins
+<h1 style="view-transition-name=headline"> Angular Language Server does not support Plugins </h1>
+
+---
+layout: cover
+transition: view-transitions
+---
+
+<h1 style="view-transition-name=headline"> Angular Language Server does not support Plugins (yet?!)</h1>
 
 ---
 layout: cover
