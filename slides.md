@@ -320,6 +320,12 @@ image: /ts-project.png
 backgroundSize: contain
 ---
 
+---
+layout: image
+image: /fake-it-gif.gif
+backgroundSize: contain
+---
+
 
 ---
 layout: center
@@ -506,6 +512,15 @@ D --> E[Angular Volar LSP]
 E --> A
 ```
 </div>
+
+---
+---
+
+# Summary
+
+- LSPs are cool(-ish)
+- TCB is a very neat idea
+- Volar is heavily underrated!
 
 ---
 layout: outro
