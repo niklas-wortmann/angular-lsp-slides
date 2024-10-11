@@ -500,16 +500,18 @@ layout: center
 ---
 
 <div class="flex items-center justify-center w-full h-90">
-```mermaid{scale:1.3}
+```mermaid{scale:1}
 graph TB
 A[Angular Component] --> B[TypeScript Part]
-B --> G[TypeScript LSP]
-G --> A
+B --> I[Typescript Language Service]
+subgraph N[TypeScript Language Server]
+    direction TB
+    E[Angular Volar Plugin] --> I
+end
 A --> H[HTML Part]
 H --> C[TCB Engine]
-C --> D[Virtual TS File]
-D --> E[Angular Volar LSP]
-E --> A
+C --> E
+C --> X[WebStorm Index]
 ```
 </div>
 
